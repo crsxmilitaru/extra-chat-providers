@@ -103,7 +103,7 @@ export abstract class BaseChatProvider implements vscode.LanguageModelChatProvid
 
     try {
       await this.streamResponse(
-        new GenericApiClient(apiKey, this.baseURL, this.providerDisplayName),
+        this.getApiClient(apiKey),
         model,
         messages,
         options,
@@ -113,6 +113,10 @@ export abstract class BaseChatProvider implements vscode.LanguageModelChatProvid
     } catch (error) {
       this.throwMappedError(error);
     }
+  }
+
+  protected getApiClient(apiKey: string): GenericApiClient {
+    return new GenericApiClient(apiKey, this.baseURL, this.providerDisplayName);
   }
 
   provideTokenCount(
