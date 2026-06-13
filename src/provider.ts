@@ -1,12 +1,16 @@
 import { BaseChatProvider } from './baseProvider';
 import { MIMO_MODELS } from './models';
-import { BASE_URL } from './api';
+import { BASE_URL, MiMoApiClient } from './api';
 
 export class MiMoChatProvider extends BaseChatProvider {
   protected override readonly baseURL = BASE_URL;
   protected override readonly providerID = 'xiaomi';
   protected override readonly providerDisplayName = 'Xiaomi';
   protected override readonly models = MIMO_MODELS;
+
+  protected override getApiClient(apiKey: string): MiMoApiClient {
+    return new MiMoApiClient(apiKey);
+  }
 
   protected override readonly errorMessages: Record<number, string> = {
     400: 'Invalid request format. Check parameters and message format.',
