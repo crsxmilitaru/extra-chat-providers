@@ -111,7 +111,6 @@ function estimateToolResultSize(
 
 export abstract class BaseChatProvider implements vscode.LanguageModelChatProvider {
   protected abstract get baseURL(): string;
-  protected abstract get providerID(): string;
   protected abstract get providerDisplayName(): string;
   protected abstract get errorMessages(): Record<number, string>;
   protected abstract get models(): vscode.LanguageModelChatInformation[];

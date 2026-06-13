@@ -57,6 +57,18 @@
 | **GLM-4.5** | 131,072 | 98,304 | No | Yes |
 | **GLM-4.5 Air** | 131,072 | 98,304 | No | Yes |
 
+### Groq
+
+| Model | Context Window | Max Output | Image Input | Tool Calling |
+|---|---|---|---|---|
+| **Llama 3.3 70B Versatile** (`llama-3.3-70b-versatile`) | 131,072 | 32,768 | No | Yes |
+| **Llama 3.1 8B Instant** (`llama-3.1-8b-instant`) | 131,072 | 131,072 | No | Yes |
+| **GPT-OSS 120B** (`openai/gpt-oss-120b`) | 131,072 | 65,536 | No | Yes |
+| **GPT-OSS 20B** (`openai/gpt-oss-20b`) | 131,072 | 65,536 | No | Yes |
+| **Groq Compound** (`groq/compound`) | 131,072 | 8,192 | No | No |
+| **Groq Compound Mini** (`groq/compound-mini`) | 131,072 | 8,192 | No | No |
+| **Qwen3 32B** (`qwen/qwen3-32b`) | 131,072 | 40,960 | No | Yes |
+
 ### NVIDIA NIM
 
 | Model | Context Window | Max Output | Image Input | Tool Calling |
@@ -84,7 +96,7 @@
 
 1. **Install** the extension from the VS Code Marketplace or Open VSX.
 2. Open your **Language Models** panel in VS Code.
-3. Click **Add Provider** and select **Xiaomi**, **Z.ai**, or **NVIDIA NIM**.
+3. Click **Add Provider** and select **Xiaomi**, **Z.ai**, **Groq**, or **NVIDIA NIM**.
 4. Enter your API key when prompted.
 5. You can now select models from these providers in GitHub Copilot Chat.
 
@@ -94,6 +106,7 @@
 
 - `extra-chat-providers.xiaomi.manage`: Manage Xiaomi provider (set/clear API key, test connection).
 - `extra-chat-providers.glm.manage`: Manage Z.ai (GLM) provider (set/clear API key, test connection).
+- `extra-chat-providers.groq.manage`: Manage Groq provider (set/clear API key, test connection).
 - `extra-chat-providers.nvidia.manage`: Manage NVIDIA NIM provider (set/clear API key, test connection).
 
 ## 🔒 Security & Privacy

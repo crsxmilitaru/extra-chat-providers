@@ -27,8 +27,6 @@ interface ProviderConfig {
   vendor: string;
   authManager: BaseAuthManager;
   provider: vscode.LanguageModelChatProvider;
-  testModelId: string;
-  testClientFactory: (key: string) => GenericApiClient;
   manageActions: Record<string, () => Promise<void>>;
 }
 
@@ -97,8 +95,6 @@ export function activate(context: vscode.ExtensionContext): void {
       vendor: PROVIDER_VENDORS.xiaomi,
       authManager: xiaomiAuthManager,
       provider: new MiMoChatProvider(xiaomiAuthManager),
-      testModelId: 'mimo-v2-flash',
-      testClientFactory: (key) => new MiMoApiClient(key),
       manageActions: {
         'Set API Key': () => xiaomiAuthManager.promptForApiKey().then(() => { }),
         'Clear API Key': () => xiaomiAuthManager.deleteApiKey().then(() => { vscode.window.showInformationMessage('Xiaomi API key cleared'); }),
@@ -111,8 +107,6 @@ export function activate(context: vscode.ExtensionContext): void {
       vendor: PROVIDER_VENDORS.glm,
       authManager: glmAuthManager,
       provider: new GlmChatProvider(glmAuthManager),
-      testModelId: 'glm-4.7-flash',
-      testClientFactory: (key) => new GlmApiClient(key),
       manageActions: {
         'Set API Key': () => glmAuthManager.promptForApiKey().then(() => { }),
         'Clear API Key': () => glmAuthManager.deleteApiKey().then(() => { vscode.window.showInformationMessage('Z.ai API key cleared'); }),
@@ -125,8 +119,6 @@ export function activate(context: vscode.ExtensionContext): void {
       vendor: PROVIDER_VENDORS.groq,
       authManager: groqAuthManager,
       provider: new GroqChatProvider(groqAuthManager),
-      testModelId: 'llama-3.3-70b-versatile',
-      testClientFactory: (key) => new GroqApiClient(key),
       manageActions: {
         'Set API Key': () => groqAuthManager.promptForApiKey().then(() => { }),
         'Clear API Key': () => groqAuthManager.deleteApiKey().then(() => { vscode.window.showInformationMessage('Groq API key cleared'); }),
@@ -139,8 +131,6 @@ export function activate(context: vscode.ExtensionContext): void {
       vendor: PROVIDER_VENDORS.nvidia,
       authManager: nvidiaAuthManager,
       provider: new NvidiaChatProvider(nvidiaAuthManager),
-      testModelId: 'google/gemma-4-31b-it',
-      testClientFactory: (key) => new NvidiaNimApiClient(key),
       manageActions: {
         'Set API Key': () => nvidiaAuthManager.promptForApiKey().then(() => { }),
         'Clear API Key': () => nvidiaAuthManager.deleteApiKey().then(() => { vscode.window.showInformationMessage('NVIDIA NIM API key cleared'); }),

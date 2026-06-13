@@ -4,13 +4,12 @@ import { BASE_URL } from './groqApi';
 
 export class GroqChatProvider extends BaseChatProvider {
   protected override readonly baseURL = BASE_URL;
-  protected override readonly providerID = 'groq';
   protected override readonly providerDisplayName = 'Groq';
   protected override readonly models = GROQ_MODELS;
 
   protected override readonly errorMessages: Record<number, string> = {
     400: 'Invalid request format. Check parameters and message format.',
-    401: 'Authentication failed. Please set a new key using "Extra Chat Providers: Groq - Set API Key".',
+    401: 'Authentication failed. Use the Manage command to set a new key.',
     403: 'Access denied. The API key may be restricted for this model.',
     404: 'Model not found. Try a different Groq model.',
     429: 'Rate limit reached. Please wait and try again.',
