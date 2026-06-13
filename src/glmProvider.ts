@@ -1,3 +1,4 @@
+import type * as vscode from 'vscode';
 import { BaseChatProvider } from './baseProvider';
 import { GLM_MODELS } from './models';
 import { BASE_URL } from './glmApi';
@@ -6,7 +7,11 @@ export class GlmChatProvider extends BaseChatProvider {
   protected override readonly baseURL = BASE_URL;
   protected override readonly providerID = 'glm';
   protected override readonly providerDisplayName = 'Z.ai';
-  protected override readonly models = GLM_MODELS;
+  protected override readonly models: vscode.LanguageModelChatInformation[] = GLM_MODELS;
+
+  protected override supportsThinking(): boolean {
+    return true;
+  }
 
   protected override readonly errorMessages: Record<number, string> = {
     400: 'Invalid request format. Check parameters and message format.',

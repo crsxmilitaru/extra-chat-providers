@@ -46,6 +46,7 @@
 
 | Model | Context Window | Max Output | Image Input | Tool Calling |
 |---|---|---|---|---|
+| **GLM-5.2** | 1,000,000 | 131,072 | No | Yes |
 | **GLM-5.1** | 204,800 | 131,072 | No | Yes |
 | **GLM-5V-Turbo** | 204,800 | 131,072 | Yes | Yes |
 | **GLM-5 Turbo** | 204,800 | 131,072 | No | Yes |
