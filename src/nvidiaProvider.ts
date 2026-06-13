@@ -25,7 +25,6 @@ const NIM_MODEL_ID_MAP: Record<string, string> = {
 
 export class NvidiaChatProvider extends BaseChatProvider {
   protected override readonly baseURL = BASE_URL;
-  protected override readonly providerID = 'nvidia';
   protected override readonly providerDisplayName = 'NVIDIA NIM';
   protected override readonly models = NIM_MODELS;
 
@@ -35,7 +34,7 @@ export class NvidiaChatProvider extends BaseChatProvider {
 
   protected override readonly errorMessages: Record<number, string> = {
     400: 'Invalid request format. Check parameters and message format.',
-    401: 'Authentication failed. Please set a new key using "Extra Chat Providers: NVIDIA NIM - Set API Key".',
+    401: 'Authentication failed. Use the Manage command to set a new key.',
     403: 'Access denied. The API key may be restricted for this model.',
     404: 'Model not found. Try a different NVIDIA NIM model.',
     421: 'Request blocked by content filter. Avoid unsafe or sensitive content.',

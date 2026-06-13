@@ -5,7 +5,6 @@ import { BASE_URL } from './glmApi';
 
 export class GlmChatProvider extends BaseChatProvider {
   protected override readonly baseURL = BASE_URL;
-  protected override readonly providerID = 'glm';
   protected override readonly providerDisplayName = 'Z.ai';
   protected override readonly models: vscode.LanguageModelChatInformation[] = GLM_MODELS;
 

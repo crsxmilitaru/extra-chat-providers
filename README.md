@@ -84,7 +84,7 @@
 
 1. **Install** the extension from the VS Code Marketplace or Open VSX.
 2. Open your **Language Models** panel in VS Code.
-3. Click **Add Provider** and select **Xiaomi**, **Z.ai**, or **NVIDIA NIM**.
+3. Click **Add Provider** and select **Xiaomi**, **Z.ai**, **Groq**, or **NVIDIA NIM**.
 4. Enter your API key when prompted.
 5. You can now select models from these providers in GitHub Copilot Chat.
 
@@ -94,6 +94,7 @@
 
 - `extra-chat-providers.xiaomi.manage`: Manage Xiaomi provider (set/clear API key, test connection).
 - `extra-chat-providers.glm.manage`: Manage Z.ai (GLM) provider (set/clear API key, test connection).
+- `extra-chat-providers.groq.manage`: Manage Groq provider (set/clear API key, test connection).
 - `extra-chat-providers.nvidia.manage`: Manage NVIDIA NIM provider (set/clear API key, test connection).
 
 ## 🔒 Security & Privacy
