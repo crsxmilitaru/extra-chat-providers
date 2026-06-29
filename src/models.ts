@@ -55,10 +55,10 @@ const GLM_5_2_THINKING_CONFIGURATION: LanguageModelConfigurationSchema = {
 
 export const MIMO_MODELS: vscode.LanguageModelChatInformation[] = [
   {
-    id: 'mimo-v2-pro',
-    name: 'MiMo-V2-Pro',
+    id: 'mimo-v2.5-pro',
+    name: 'MiMo-V2.5-Pro',
     family: 'mimo',
-    version: 'v2-pro',
+    version: 'v2.5-pro',
     tooltip: 'Xiaomi',
     detail: 'Xiaomi',
     maxInputTokens: 1048576,
@@ -66,26 +66,15 @@ export const MIMO_MODELS: vscode.LanguageModelChatInformation[] = [
     capabilities: { imageInput: false, toolCalling: true },
   },
   {
-    id: 'mimo-v2-flash',
-    name: 'MiMo-V2-Flash',
+    id: 'mimo-v2.5',
+    name: 'MiMo-V2.5',
     family: 'mimo',
-    version: 'v2-flash',
+    version: 'v2.5',
     tooltip: 'Xiaomi',
     detail: 'Xiaomi',
     maxInputTokens: 262144,
     maxOutputTokens: 131072,
     capabilities: { imageInput: false, toolCalling: true },
-  },
-  {
-    id: 'mimo-v2-omni',
-    name: 'MiMo-V2-Omni',
-    family: 'mimo',
-    version: 'v2-omni',
-    tooltip: 'Xiaomi',
-    detail: 'Xiaomi',
-    maxInputTokens: 262144,
-    maxOutputTokens: 131072,
-    capabilities: { imageInput: true, toolCalling: true },
   },
 ];
 

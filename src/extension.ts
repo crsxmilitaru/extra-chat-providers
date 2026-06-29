@@ -6,7 +6,7 @@ import { GroqAuthManager } from './groqAuth';
 import { GroqChatProvider } from './groqProvider';
 import { NvidiaAuthManager } from './nvidiaAuth';
 import { NvidiaChatProvider } from './nvidiaProvider';
-import { MiMoChatProvider } from './provider';
+import { fetchXiaomiChatModels, MiMoChatProvider } from './provider';
 import { MiMoApiClient } from './api';
 import { GlmApiClient } from './glmApi';
 import { GroqApiClient } from './groqApi';
@@ -30,10 +30,12 @@ interface ProviderConfig {
   manageActions: Record<string, () => Promise<void>>;
 }
 
+type TestModelResolver = string | ((key: string) => Promise<string>);
+
 async function testConnection(
   authManager: BaseAuthManager,
   clientFactory: (key: string) => GenericApiClient,
-  modelId: string,
+  modelId: TestModelResolver,
   providerDisplayName: string,
 ): Promise<void> {
   const key = await authManager.getApiKey();
@@ -50,7 +52,8 @@ async function testConnection(
 
   const client = clientFactory(key);
   try {
-    await client.chat(modelId, [{ role: 'user', content: 'Ping' }], {
+    const testModelId = typeof modelId === 'function' ? await modelId(key) : modelId;
+    await client.chat(testModelId, [{ role: 'user', content: 'Ping' }], {
       maxTokens: 1,
     });
     vscode.window.showInformationMessage(`${providerDisplayName} provider test succeeded.`);
@@ -63,6 +66,14 @@ async function testConnection(
     }
     vscode.window.showErrorMessage(message);
   }
+}
+
+async function getLatestXiaomiChatModel(apiKey: string): Promise<string> {
+  const [model] = await fetchXiaomiChatModels(apiKey);
+  if (!model) {
+    throw new Error('Xiaomi did not return any chat-capable MiMo models');
+  }
+  return model.id;
 }
 
 function registerProviderSafely(
@@ -98,7 +109,7 @@ export function activate(context: vscode.ExtensionContext): void {
       manageActions: {
         'Set API Key': () => xiaomiAuthManager.promptForApiKey().then(() => { }),
         'Clear API Key': () => xiaomiAuthManager.deleteApiKey().then(() => { vscode.window.showInformationMessage('Xiaomi API key cleared'); }),
-        'Test Connection': () => testConnection(xiaomiAuthManager, (key) => new MiMoApiClient(key), 'mimo-v2-flash', 'Xiaomi'),
+        'Test Connection': () => testConnection(xiaomiAuthManager, (key) => new MiMoApiClient(key), getLatestXiaomiChatModel, 'Xiaomi'),
       },
     },
     {
