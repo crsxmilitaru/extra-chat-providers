@@ -74,7 +74,7 @@ export const MIMO_MODELS: vscode.LanguageModelChatInformation[] = [
     detail: 'Xiaomi',
     maxInputTokens: 262144,
     maxOutputTokens: 131072,
-    capabilities: { imageInput: false, toolCalling: true },
+    capabilities: { imageInput: true, toolCalling: true },
   },
 ];
 

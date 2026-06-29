@@ -31,6 +31,11 @@ function toDisplayName(modelId: string): string {
     .join('-')}`;
 }
 
+function supportsImageInput(modelId: string): boolean {
+  const id = modelId.toLowerCase();
+  return id === 'mimo-v2.5' || id.includes('omni') || id.includes('vision');
+}
+
 function toModelInfo(modelId: string): vscode.LanguageModelChatInformation {
   const id = modelId.toLowerCase();
 
@@ -44,7 +49,7 @@ function toModelInfo(modelId: string): vscode.LanguageModelChatInformation {
     maxInputTokens: id.includes('pro') ? 1048576 : 262144,
     maxOutputTokens: 131072,
     capabilities: {
-      imageInput: id.includes('omni') || id.includes('vision'),
+      imageInput: supportsImageInput(modelId),
       toolCalling: true,
     },
   };

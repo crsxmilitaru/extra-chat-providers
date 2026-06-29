@@ -43,7 +43,7 @@ Bundled fallback models:
 | Model | Context Window | Max Output | Image Input | Tool Calling |
 |---|---|---|---|---|
 | **MiMo-V2.5-Pro** (`mimo-v2.5-pro`) | 1,048,576 | 131,072 | No | Yes |
-| **MiMo-V2.5** (`mimo-v2.5`) | 262,144 | 131,072 | No | Yes |
+| **MiMo-V2.5** (`mimo-v2.5`) | 262,144 | 131,072 | Yes | Yes |
 
 ### Z.AI
 
