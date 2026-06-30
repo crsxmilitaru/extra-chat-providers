@@ -24,7 +24,7 @@
 
 ## ✨ Features
 
-- **Xiaomi MiMo**: Integration for Xiaomi's AI models directly in your chat. Automatically supports both Pay-as-you-go (`sk-...`) and Token Plan (`tp-...`) API keys and routes to the correct endpoints.
+- **Xiaomi MiMo**: Integration for Xiaomi's AI models directly in your chat. Automatically supports both Pay-as-you-go (`sk-...`) and Token Plan (`tp-...`) API keys, routes to the correct endpoints, and discovers available chat models from Xiaomi's API.
 - **Z.ai (GLM)**: Support for Z.ai GLM-4 and GLM-5 models.
 - **NVIDIA NIM**: OpenAI-compatible support for models from the NVIDIA API Catalog.
 - **Native Integration**: Works seamlessly with the VS Code `LanguageModelChat` API.
@@ -36,11 +36,14 @@
 
 ### Xiaomi
 
+Xiaomi models are loaded dynamically from the provider's `/models` endpoint for the configured API key. Non-chat models such as ASR and TTS variants are filtered out before models are shown in VS Code.
+
+Bundled fallback models:
+
 | Model | Context Window | Max Output | Image Input | Tool Calling |
 |---|---|---|---|---|
-| **MiMo-V2-Pro** | 1,048,576 | 131,072 | No | Yes |
-| **MiMo-V2-Flash** | 262,144 | 131,072 | No | Yes |
-| **MiMo-V2-Omni** | 262,144 | 131,072 | Yes | Yes |
+| **MiMo-V2.5-Pro** (`mimo-v2.5-pro`) | 1,048,576 | 131,072 | No | Yes |
+| **MiMo-V2.5** (`mimo-v2.5`) | 262,144 | 131,072 | Yes | Yes |
 
 ### Z.AI
 
