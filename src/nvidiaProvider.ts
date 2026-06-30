@@ -7,6 +7,7 @@ const NIM_MODEL_ID_MAP: Record<string, string> = {
   'nemotron-3-ultra-550b-a55b': 'nvidia/nemotron-3-ultra-550b-a55b',
   'nemotron-3-super-120b-a12b': 'nvidia/nemotron-3-super-120b-a12b',
   'deepseek-v4-flash': 'deepseek-ai/deepseek-v4-flash',
+  'deepseek-v4-pro': 'deepseek-ai/deepseek-v4-pro',
   'minimax-m2.7': 'minimaxai/minimax-m2.7',
   'minimax-m2.5': 'minimaxai/minimax-m2.5',
   'step-3.5-flash': 'stepfun-ai/step-3.5-flash',
