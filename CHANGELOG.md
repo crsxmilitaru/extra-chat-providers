@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0]
+
+- **Xiaomi Provider**:
+  - Discover MiMo chat models dynamically from the configured account's `/models` endpoint.
+  - Filter non-chat Xiaomi models from the provider model list.
+  - Mark image-capable MiMo models correctly, including `mimo-v2.5`.
+  - Updated fallback models and connection testing to avoid stale MiMo model IDs.
+
+- **NVIDIA NIM Provider**:
+  - Added **DeepSeek V4 Pro** (`deepseek-ai/deepseek-v4-pro`).
+
+**Contributors:**
+- [@tabebill](https://github.com/tabebill) (dynamic Xiaomi MiMo model discovery)
+- [@mbrevda](https://github.com/mbrevda) (DeepSeek V4 Pro for NVIDIA NIM)
+
 ## [1.1.0] - 2026-06-13
 
 - **New provider**: Added Groq API support with the following models:
